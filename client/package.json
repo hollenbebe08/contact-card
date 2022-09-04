@@ -1,0 +1,19 @@
+{
+  "name": "contact-card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollenbebe08/contact-card.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hollenbebe08/contact-card/issues"
+  },
+  "homepage": "https://github.com/hollenbebe08/contact-card#readme"
+}
