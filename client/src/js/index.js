@@ -1,5 +1,5 @@
 //import functions
-import { initdb } from './database';
+import { initdb, getDb, postDb } from './database';
 
 //import JS files
 import './form';
