@@ -1,5 +1,5 @@
 //import functions
-import { initdb, getDb, postDb } from './database';
+import { initdb, getDb, postDb, deleteDb } from './database';
 import { fetchCards } from './cards';
 import { toggleForm, clearForm } from './form';
 
@@ -63,3 +63,14 @@ window.addEventListener('load', function () {
   // Reload the DOM
   fetchCards();
   });
+
+// Card functionality
+// Adds deleteCard() to the global scope so each card has access to it.
+window.deleteCard = (e) => {
+    // Grabs the id from the button element attached to the contact card.
+    let id = parseInt(e.id);
+    // Delete the card
+    deleteDb(id);
+    // Reload the DOM
+    fetchCards();
+};
