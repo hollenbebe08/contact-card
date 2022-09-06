@@ -17,6 +17,7 @@ export const initdb = async () => {
     });
 };
 
+//Exported READ function
 export const getDb = async () => {
     //create a connection to the databases data and version we want to use
     const contactDb = await openDB('contact_db', 1);
@@ -36,6 +37,7 @@ export const getDb = async () => {
     return result;
 };
 
+//exported CREATE function
 //export a function we will use to POST to the database
 export const postDb = async (name, email, phone, profile) => {
     console.log('POST to the database');
@@ -57,6 +59,7 @@ export const postDb = async (name, email, phone, profile) => {
     console.log(' -data saved to the database', result);
 };
 
+//exported DELETE function
 export const deleteDb = async (id) => {
     console.log('DELETE from the database', id);
 
@@ -77,3 +80,19 @@ export const deleteDb = async (id) => {
     console.log('result.value', result);
     return result?.value;
 };
+
+//exported EDIT function
+export const editDb = async (id, name, email, phone, profile) => {
+    console.log('PUT to the database');
+  
+    const contactDb = await openDB('contact_db', 1);
+  
+    const tx = contactDb.transaction('contacts', 'readwrite');
+  
+    const store = tx.objectStore('contacts');
+    
+    const request = store.put({ id: id, name: name, email: email, phone: phone, profile: profile });
+    const result = await request;
+    console.log('🚀 - data saved to the database', result);
+};
+  
