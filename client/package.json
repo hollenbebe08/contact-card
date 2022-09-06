@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server",
     "start": "webpack --watch"
   },
@@ -28,7 +28,11 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
+<<<<<<< HEAD
     "workbox-webpack-plugin": "^6.5.4"
+=======
+    "webpack-pwa-manifest": "^4.3.0"
+>>>>>>> develop
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",

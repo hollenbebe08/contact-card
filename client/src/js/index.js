@@ -96,8 +96,37 @@ window.editCard = (e) => {
     submitBtnToUpdate = true;
 };
 
+<<<<<<< HEAD
 if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js');
 })};
+=======
+// Checks to see if serviceWorker exists in the navigator and installs our service worker configurations
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function(reg) {
+        console.log('Successfully registered service worker', reg);
+    }).catch(function(err) {
+        console.warn('Error whilst registering service worker', err);
+    });
+  }
+  
+// Install button 
+  const installBtn = document.getElementById('installBtn');
+  
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installBtn.style.visibility = 'visible';
+  
+    installBtn.addEventListener('click', () => {
+      event.prompt();
+      installBtn.setAttribute('disabled', true);
+      installBtn.textContent = 'Installed!';
+    });
+  });
+  
+window.addEventListener('appinstalled', (event) => {
+    console.log('👍', 'appinstalled', event);
+});
+>>>>>>> develop
