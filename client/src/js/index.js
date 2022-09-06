@@ -95,3 +95,30 @@ window.editCard = (e) => {
     // Toggles the submit button so that it now Updates an existing contact instead of posting a new one
     submitBtnToUpdate = true;
 };
+
+// Checks to see if serviceWorker exists in the navigator and installs our service worker configurations
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function(reg) {
+        console.log('Successfully registered service worker', reg);
+    }).catch(function(err) {
+        console.warn('Error whilst registering service worker', err);
+    });
+  }
+  
+// Install button 
+  const installBtn = document.getElementById('installBtn');
+  
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installBtn.style.visibility = 'visible';
+  
+    installBtn.addEventListener('click', () => {
+      event.prompt();
+      installBtn.setAttribute('disabled', true);
+      installBtn.textContent = 'Installed!';
+    });
+  });
+  
+window.addEventListener('appinstalled', (event) => {
+    console.log('👍', 'appinstalled', event);
+});
